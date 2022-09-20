@@ -9,7 +9,6 @@ defmodule SophosApp.Fizzbuzz do
   @doc """
   Tarea
   """
-
   def transform(list) do
     fizzbuzz_transform(list,[])
   end
@@ -17,9 +16,9 @@ defmodule SophosApp.Fizzbuzz do
   defp fizzbuzz_transform([], list_fizbuzz), do: list_fizbuzz
   defp fizzbuzz_transform([h | t], list_fizbuzz), do: fizzbuzz_transform(t, list_fizbuzz ++ [evaluate(h)])
 
-  defp evaluate(h) when rem(h, 5) == 0 and rem(h, 3) == 0, do: "FizzBuzz"
-  defp evaluate(h) when rem(h, 3) == 0, do: "Fizz"
-  defp evaluate(h) when rem(h, 5) == 0 or rem(h, 3) == 0, do: "Buzz"
+  defp evaluate(h) when rem(h, 5) == 0 and rem(h, 3) == 0, do: :fizz_buzz
+  defp evaluate(h) when rem(h, 3) == 0, do: :fizz
+  defp evaluate(h) when rem(h, 5) == 0, do: :buzz
   defp evaluate(h), do: h
 
   @doc """
