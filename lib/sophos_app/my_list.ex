@@ -24,4 +24,22 @@ defmodule SophosApp.MyList do
     generate(n-1, [n | list])
   end
 
+  @doc """
+  Tarea apply list y count list
+  """
+
+  def apply_to_list(list)  do
+    apply_to(list, [])
+  end
+
+  defp apply_to([], element), do: element
+  defp apply_to([h | t], element),  do: apply_to(t, element ++ [h*3] )
+
+  def count_list(list)  do
+    count(list, 0)
+  end
+
+  defp count([], n), do: n
+  defp count([_ | t], n),  do: count(t, n + 1 )
+
 end
