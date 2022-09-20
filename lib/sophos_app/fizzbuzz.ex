@@ -6,6 +6,10 @@ defmodule SophosApp.Fizzbuzz do
     |> transform()
   end
 
+  @doc """
+  Tarea
+  """
+
   def transform(list) do
     fizzbuzz_transform(list,[])
   end
