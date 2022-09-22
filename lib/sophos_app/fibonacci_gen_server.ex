@@ -7,7 +7,7 @@ defmodule SophosApp.FibonacciGenServer do
     {:ok, %{}}
   end
 
-  def star_link() do
+  def start_link(_) do
     GenServer.start_link( __MODULE__, %{})
   end
 
@@ -51,7 +51,7 @@ defmodule SophosApp.FibonacciGenServer do
 
   defp compute_sequence(n, state) do
     state
-    |> Map.fetch!(n)
+    |> Map.fetch(n)
     |> case do
       {:ok, r} -> r
       :error -> Fibonacci.secuence(n)

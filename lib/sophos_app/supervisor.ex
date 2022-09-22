@@ -1,13 +1,15 @@
-defmodule SophosApp.FibonacciSupervisor do
+defmodule SophosApp.Supervisor do
   use Supervisor
-  alias SophosApp.FibonacciGenServer
 
   def start_link(args) do
     Supervisor.start_link(__MODULE__, args, name: __MODULE__)
   end
 
   def init(_args) do
-    children = [FibonacciGenServer]
+    children = [
+      {SophosApp.FibonacciSupervisor, []},
+      {Task.Supervisor, [name: SophosApp.TaskSupervisor]}
+    ]
 
     Supervisor.init(children, strategy: :one_for_one)
   end
