@@ -8,6 +8,7 @@ defmodule SophosApp.Supervisor do
   def init(_args) do
     children = [
       {SophosApp.FibonacciSupervisor, []},
+      {SophosApp.FactorialSupervisor, []},
       {Task.Supervisor, [name: SophosApp.TaskSupervisor]}
     ]
 
